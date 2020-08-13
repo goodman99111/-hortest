@@ -1,0 +1,16 @@
+C:\Users\good\source\repos\Graph\bin\Debug\Graph.exe.config
+C:\Users\good\source\repos\Graph\bin\Debug\Graph.exe
+C:\Users\good\source\repos\Graph\bin\Debug\Graph.pdb
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.csprojAssemblyReference.cache
+C:\Users\good\source\repos\Graph\obj\Debug\MainWindow.g.cs
+C:\Users\good\source\repos\Graph\obj\Debug\App.g.cs
+C:\Users\good\source\repos\Graph\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\good\source\repos\Graph\obj\Debug\Graph_MarkupCompile.cache
+C:\Users\good\source\repos\Graph\obj\Debug\Graph_MarkupCompile.lref
+C:\Users\good\source\repos\Graph\obj\Debug\MainWindow.baml
+C:\Users\good\source\repos\Graph\obj\Debug\Themes\Generic.baml
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.g.resources
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.Properties.Resources.resources
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.csproj.GenerateResource.cache
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.exe
+C:\Users\good\source\repos\Graph\obj\Debug\Graph.pdb
