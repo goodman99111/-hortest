@@ -15,6 +15,7 @@ namespace Graph
         public static Cell a = GridLayout.GetCell(1);
         public static Cell b = GridLayout.GetCell(20);
 
+        //Установка начальной точки
         public static void SetStart(Cell cell)
         {
             a.ChangeType(StateEdge.Edge);
@@ -22,6 +23,7 @@ namespace Graph
             a.ChangeType(StateEdge.StartPoint);
         }
 
+        //Установка конечной точки
         public static void SetEnd(Cell cell)
         {
             b.ChangeType(StateEdge.Edge);
@@ -29,8 +31,7 @@ namespace Graph
             b.ChangeType(StateEdge.EndPoint);
         }
 
-
-
+        //Поиск пути
         public static List<Cell> Search(int a, int b)
         {
             List<Cell> awaitCell = new List<Cell>();
@@ -99,7 +100,6 @@ namespace Graph
             return null;
         }
 
-
         //Расстояние между соседними клетками
         private static int GetDistanceBetweenNeighbours()
         {
@@ -114,6 +114,7 @@ namespace Graph
             return (int)Math.Abs(cell_a.X - cell_b.X) + (int)Math.Abs(cell_a.Y - cell_b.Y);
         }
 
+        //Составляет список вершин входящих в путь
         private static List<Cell> GetPathForNode(Cell cell)
         {
             var spis = GridLayout.edges;
@@ -128,6 +129,7 @@ namespace Graph
             return result;
         }
 
+        //Получение доступных соседних клеток
         public static Collection<Cell> GetPar(Cell cell, int b)
         {
             var listpar = new Collection<Cell>();
@@ -150,15 +152,6 @@ namespace Graph
             try { listpar.Add(GridLayout.edges[count - GridLayout._sizeW]); } catch { }
             try { listpar.Add(GridLayout.edges[count + GridLayout._sizeW]); } catch { }
 
-            /*
-            foreach(Cell node in listpar)
-            {
-                if(node.TypeEdge == StateEdge.Wall)
-                {
-                    listpar.Remove(node);
-                }
-            }
-            */
             int i = listpar.Count - 1;
             while(i >= 0)
             {

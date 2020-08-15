@@ -51,6 +51,7 @@ namespace Graph
         public StateEdge TypeEdge = StateEdge.Edge;
         public static MouseMode mouseMode = MouseMode.None;
         public int Num { get; set; }
+        public int Weight { get; set; }
         public Point Point { get; set; }
 
         public int PathLengthFromStart { get; set; }
@@ -73,6 +74,7 @@ namespace Graph
         }
         public Cell(int num, StateEdge stateEdge)
         {
+            Weight = 1;
             if (stateEdge == StateEdge.Edge)
             { 
                 this.Background = new SolidColorBrush(Colors.White);

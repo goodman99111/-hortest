@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Graph.ViewModel
@@ -122,11 +123,15 @@ namespace Graph.ViewModel
                 {
                     GridLayout.ClearPath();
                     List<Cell> path = ASearch.Search(ASearch.a.Num, ASearch.b.Num);
-                    foreach (Cell path_node in path)
-                    {
-                        path_node.ChangeColor(Colors.Aqua);
-                    }
+                    if (path != null)
+                        foreach (Cell path_node in path)
+                        {
+                            path_node.ChangeColor(Colors.Aqua);
+                        }
+                    else
+                        MessageBox.Show("Пути нет");
                     
+
                     ASearch.a.ChangeColor(Colors.Green);
                     ASearch.b.ChangeColor(Colors.Red);
                 }));

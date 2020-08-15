@@ -31,7 +31,7 @@ namespace Graph
             
         }
 
-        public  int _sizeH = 17; // высота
+        public  int _sizeH = 16; // высота
         public static int _sizeW = 20; // ширина
 
         
@@ -54,8 +54,10 @@ namespace Graph
                     Cell cell = new Cell(count, StateEdge.Edge);
                     cell.Point = new Point(i, k);
                     this.Children.Add(cell);
+                    /*
                     cell.Margin = new Thickness(-492+k*49,-338+i*49, 0, 0);
-
+                    */
+                    cell.Margin = new Thickness(-500 + k * 49, -500 + i * 49, 0, 0);
                     edges.Add(cell);
 
                     count++;
@@ -71,7 +73,7 @@ namespace Graph
             return cell;
         }
         
-        
+        //Изменение режима
         public static void ChangeMode(MouseMode mouseMode)
         {
             Cell.mouseMode = mouseMode;

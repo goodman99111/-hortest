@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" Foreground="White" BorderBrush="#FF4B4848">
     <Grid Width="800" Height="600">
-        <local:GridLayout Height="446" Margin="10,25,290,0" VerticalAlignment="Top" MaxWidth="500"/>
+        <local:GridLayout Height="499" Margin="30,75,270,26"  MaxWidth="500" RenderTransformOrigin="0.029,0.03"/>
 
         <Canvas HorizontalAlignment="Left" Height="127" Margin="564,51,0,0" VerticalAlignment="Top" Width="226" Background="#FFEAEAEA">
             <Button x:Name="button" Command="{Binding ModeWall}" Content="Wall" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Panel.ZIndex="1" Canvas.Top="73"/>
