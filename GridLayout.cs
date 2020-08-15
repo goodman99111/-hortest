@@ -23,6 +23,7 @@ namespace Graph
             DefaultStyleKeyProperty.OverrideMetadata(typeof(GridLayout), new FrameworkPropertyMetadata(typeof(GridLayout)));
             
         }
+        //Список вершин
         public static List<Cell> edges = new List<Cell>();
 
         public GridLayout()
@@ -30,10 +31,10 @@ namespace Graph
             
         }
 
-        public  int _sizeH = 19;
-        public static int _sizeW = 20;
+        public  int _sizeH = 17; // высота
+        public static int _sizeW = 20; // ширина
 
-
+        
         protected override void OnInitialized(EventArgs e)
         {
             Width = 25 * _sizeW;
@@ -41,6 +42,7 @@ namespace Graph
             CreateCells();
         }
 
+        //Создание сетки клеток
         private void CreateCells()
         {
             int count = 1;
@@ -62,17 +64,19 @@ namespace Graph
             }
         }
         
+        //Получить id клетки
         public static Cell GetCell(int n)
         {
             Cell cell = edges.Find(c => n == c.Num);
             return cell;
         }
-    
+        
+        
         public static void ChangeMode(MouseMode mouseMode)
         {
             Cell.mouseMode = mouseMode;
         }
-
+        //Очистить путь
         public static void ClearPath()
         {
             foreach (Cell cell in edges)
@@ -82,14 +86,35 @@ namespace Graph
             }
         }
 
+        //Удалить все стены
+        public static void DeleteWalls()
+        {
+            foreach (Cell cell in edges)
+                if (cell.TypeEdge == StateEdge.Wall)
+                    cell.ChangeType(StateEdge.Edge);
+        }
+
+        //Создание стен в рандомных местах
+        public static void CreateRandomWalls()
+        {
+            DeleteWalls();
+            Random r = new Random();
+            int x = r.Next(0, edges.Count - 1);
+            for (int i = 0; i <= x; i++)
+            {
+                edges[r.Next(0, edges.Count)].ChangeType(StateEdge.Wall);
+            }
+        }
+
        
     }
-
+    //Возможные режимы
     public enum MouseMode
     {
-        WallMode,
-        StartMode,
-        EndMode,
-        None
+        WallMode, //Установка стен
+        StartMode, // Установка начальной точки
+        EndMode, //Установка конечной точки
+        GetInfo, //Получение  информации о клетке
+        None //Ничего
     }
 }

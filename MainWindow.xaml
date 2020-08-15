@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" Foreground="White" BorderBrush="#FF4B4848">
     <Grid Width="800" Height="600">
-        <local:GridLayout Height="446" Margin="10,-30,290,0" VerticalAlignment="Top" MaxWidth="500"/>
+        <local:GridLayout Height="446" Margin="10,25,290,0" VerticalAlignment="Top" MaxWidth="500"/>
 
-        <Canvas HorizontalAlignment="Left" Height="127" Margin="564,40,0,0" VerticalAlignment="Top" Width="218" Background="#FFEAEAEA">
+        <Canvas HorizontalAlignment="Left" Height="127" Margin="564,51,0,0" VerticalAlignment="Top" Width="226" Background="#FFEAEAEA">
             <Button x:Name="button" Command="{Binding ModeWall}" Content="Wall" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Panel.ZIndex="1" Canvas.Top="73"/>
             <Button x:Name="button1" Content="ClearPath" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="76" Click="button1_Click" Panel.ZIndex="1" Canvas.Left="1" Canvas.Top="107"/>
-            <Button x:Name="button2" Content="A*" Command="{Binding A}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="74" Panel.ZIndex="1" Canvas.Left="144" Canvas.Top="5"/>
+            <Button x:Name="button2" Content="A*" Command="{Binding A}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="82" Panel.ZIndex="1" Canvas.Left="144" Canvas.Top="5"/>
             <Button x:Name="button3" Content="Start" Command="{Binding ModeStart}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="74" Panel.ZIndex="1" Canvas.Left="1"/>
             <Button x:Name="button4" Content="End" Command="{Binding ModeEnd}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="74" Panel.ZIndex="1" Canvas.Left="1" Canvas.Top="37"/>
+            <Button x:Name="button5" Content="GetInfoCell" Command="{Binding GetInfo}" Canvas.Left="143" Canvas.Top="107" Width="83"/>
+            <Button x:Name="button6" Content="RandomWalls" Command="{Binding CreateRandomWalls}" Canvas.Left="143" Canvas.Top="73" Width="83"/>
+            <Button x:Name="button7" Content="DeleteAllWalls" Command="{Binding DeleteAllWalls}" Canvas.Left="144" Canvas.Top="37" Width="82"/>
         </Canvas>
+        <Label x:Name="label" Content="{Binding CurrentMouseMode}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

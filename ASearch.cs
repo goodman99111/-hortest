@@ -146,17 +146,32 @@ namespace Graph
                 try { listpar.Add(GridLayout.edges[count - 1]); } catch { }
                 try { listpar.Add(GridLayout.edges[count + 1]); } catch { }
             }
+            
             try { listpar.Add(GridLayout.edges[count - GridLayout._sizeW]); } catch { }
             try { listpar.Add(GridLayout.edges[count + GridLayout._sizeW]); } catch { }
 
-
-            for (int i = 0; i < listpar.Count; i++)
+            /*
+            foreach(Cell node in listpar)
+            {
+                if(node.TypeEdge == StateEdge.Wall)
+                {
+                    listpar.Remove(node);
+                }
+            }
+            */
+            int i = listpar.Count - 1;
+            while(i >= 0)
             {
                 if (listpar[i].TypeEdge == StateEdge.Wall)
-                    listpar.Remove(listpar[i]);
+                {
+                    listpar.RemoveAt(i);
+                    i--;
+                }
+                else
+                    i--;
             }
-
-            foreach(Cell node in listpar)
+            
+            foreach (Cell node in listpar)
             {
                 node.PathLengthFromStart = cell.PathLengthFromStart + GetDistanceBetweenNeighbours();
                 node.HeuristicEstimatePathLength = GetHeuristicPathLength(node.Num, b);

@@ -129,6 +129,12 @@ namespace Graph
                 return;
             }
 
+            if(MouseMode.GetInfo == mouseMode)
+            {
+                MessageBox.Show(TypeEdge.ToString());
+                return;
+            }
+
         }
         
         public void ChangeColor(Color color)
