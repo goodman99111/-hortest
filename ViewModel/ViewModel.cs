@@ -49,7 +49,7 @@ namespace Graph.ViewModel
                 return _modeWall ?? (_modeWall = new RelayCommand(obj =>
                 {
                     GridLayout.ChangeMode(MouseMode.WallMode);
-                    CurrentMouseMode = "Текущий режим: установка стен";
+                    CurrentMouseMode = "Текущий режим: установка/удаление стен";
 
                 }));
             }

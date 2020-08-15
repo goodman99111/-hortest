@@ -99,7 +99,7 @@ namespace Graph
         {
             DeleteWalls();
             Random r = new Random();
-            int x = r.Next(0, edges.Count - 1);
+            int x = r.Next(0, (edges.Count)/2);
             for (int i = 0; i <= x; i++)
             {
                 edges[r.Next(0, edges.Count)].ChangeType(StateEdge.Wall);
