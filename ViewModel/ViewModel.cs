@@ -160,13 +160,13 @@ namespace Graph.ViewModel
                 return _A ?? (_A = new RelayCommand(obj =>
                 {
                     GridLayout.ClearPath();
-
                     Stopwatch sw = Stopwatch.StartNew();
                     List<Cell> path = ASearch.Search(ASearch.a.Num, ASearch.b.Num);
                     sw.Stop();
 
+
                     TimePath = $"Время(мс): {sw.ElapsedMilliseconds}";
-                    LengthPath = $"Длина пути: {path.Count-1}";
+                    LengthPath = path != null ? $"Длина пути: {path.Count - 1}" : $"Длина пути: 0";
                     if (path != null)
                         foreach (Cell path_node in path)
                         {
