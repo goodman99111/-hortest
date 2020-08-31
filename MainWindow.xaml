@@ -11,7 +11,7 @@
 
         <Canvas HorizontalAlignment="Left" Height="127" Margin="564,51,0,0" VerticalAlignment="Top" Width="226" Background="#FFEAEAEA">
             <Button x:Name="button" Command="{Binding ModeWall}" Content="Wall" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Panel.ZIndex="1" Canvas.Top="73"/>
-            <Button x:Name="button1" Content="ClearPath" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="76" Click="button1_Click" Panel.ZIndex="1" Canvas.Left="1" Canvas.Top="107"/>
+            <Button x:Name="button1" Content="ClearPath" Command="{Binding ClearPath}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="76" Panel.ZIndex="1" Canvas.Left="1" Canvas.Top="107"/>
             <Button x:Name="button2" Content="A*" Command="{Binding A}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="82" Panel.ZIndex="1" Canvas.Left="144"/>
             <Button x:Name="button3" Content="Start" Command="{Binding ModeStart}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="74" Panel.ZIndex="1" Canvas.Left="1"/>
             <Button x:Name="button4" Content="End" Command="{Binding ModeEnd}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="74" Panel.ZIndex="1" Canvas.Left="1" Canvas.Top="37"/>
@@ -20,5 +20,7 @@
             <Button x:Name="button7" Content="DeleteAllWalls" Command="{Binding DeleteAllWalls}" Canvas.Left="144" Canvas.Top="37" Width="82"/>
         </Canvas>
         <Label x:Name="label" Content="{Binding CurrentMouseMode}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LengthPath" Content="{Binding LengthPath}" HorizontalAlignment="Left" Margin="564,194,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TimePath" Content="{Binding TimePath}" HorizontalAlignment="Left" Margin="564,220,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

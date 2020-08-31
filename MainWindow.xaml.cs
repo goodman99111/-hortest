@@ -23,31 +23,7 @@ namespace Graph
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel.ViewModel();
-
-            CreatMain();
-        }
-
-        public void CreatMain()
-        {
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            GridLayout.ClearPath();
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            GridLayout.ClearPath();
-
-            var path = ASearch.Search(1, 200);
-            if (path != null)
-                foreach (Cell path_node in path)
-                    path_node.ChangeColor(Colors.Aqua);
-
-           GridLayout.GetCell(1).ChangeType(StateEdge.StartPoint);
-           GridLayout.GetCell(200).ChangeType(StateEdge.EndPoint);
+            DataContext = ViewModel.ViewModel.GetViewModel();
         }
     }
 }

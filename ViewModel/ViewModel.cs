@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -14,7 +15,11 @@ namespace Graph.ViewModel
 {
     class ViewModel: INotifyPropertyChanged
     {
+        private static ViewModel _instance;
+
         private string _currentMousemode;
+        private string _timePath;
+        private string _lengthPath;
 
 
         private RelayCommand _modeWall;
@@ -23,6 +28,7 @@ namespace Graph.ViewModel
         private RelayCommand _getInfoCell;
         private RelayCommand _deleteAllWalls;
         private RelayCommand _createRandomWalls;
+        private RelayCommand _clearPath;
         private RelayCommand _A;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,6 +37,8 @@ namespace Graph.ViewModel
         public ViewModel()
         {
             CurrentMouseMode = "Текущий режим: ";
+            TimePath = "Время(мс): ";
+            LengthPath = "Длина пути: ";
         }
 
         public string CurrentMouseMode
@@ -42,6 +50,26 @@ namespace Graph.ViewModel
                 OnPropertyChanged("CurrentMouseMode");
             }
         }
+        public string TimePath
+        {
+            get { return _timePath; }
+            set
+            {
+                _timePath = value;
+                OnPropertyChanged("TimePath");
+            }
+        }
+        public string LengthPath
+        {
+            get { return _lengthPath; }
+            set
+            {
+                _lengthPath = value;
+                OnPropertyChanged("LengthPath");
+            }
+        }
+
+
 
         public RelayCommand ModeWall
         {
@@ -115,6 +143,16 @@ namespace Graph.ViewModel
                 }));
             }
         }
+        public RelayCommand ClearPath
+        {
+            get
+            {
+                return _clearPath ?? (_clearPath = new RelayCommand(obj =>
+                {
+                    GridLayout.ClearPath();
+                }));
+            }
+        }
         public RelayCommand A
         {
             get
@@ -122,7 +160,13 @@ namespace Graph.ViewModel
                 return _A ?? (_A = new RelayCommand(obj =>
                 {
                     GridLayout.ClearPath();
+
+                    Stopwatch sw = Stopwatch.StartNew();
                     List<Cell> path = ASearch.Search(ASearch.a.Num, ASearch.b.Num);
+                    sw.Stop();
+
+                    TimePath = $"Время(мс): {sw.ElapsedMilliseconds}";
+                    LengthPath = $"Длина пути: {path.Count-1}";
                     if (path != null)
                         foreach (Cell path_node in path)
                         {
@@ -138,10 +182,21 @@ namespace Graph.ViewModel
             }
         }
 
+        public static ViewModel GetViewModel()
+        {
+            return _instance != null ? _instance : _instance = new ViewModel();
+        }
+
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void SetSpecifics(string time, string length)
+        {
+            TimePath = time;
+            LengthPath = length;
         }
     }
 }
